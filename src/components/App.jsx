@@ -21,9 +21,26 @@ class App extends React.Component {
       );
     }
   decreaseHealthMeters() {
-    this.setState({thirst: this.state.thirst-1});
-    this.setState({hunger: this.state.hunger-1});
-    this.setState({energy: this.state.energy-1});
+    var newHunger = this.state.hunger - 1;
+    var newEnergy = this.state.energy - 1;
+    var newThirst = this.state.thirst - 1;
+    this.setState({thirst: newThirst});
+    this.setState({hunger: newHunger});
+    this.setState({energy: newEnergy});
+  }
+  handleImproveThirst() {
+    var addThirst = this.state.thirst + 1;
+    this.setState({thirst: addThirst});
+  }
+
+  handleImproveHunger() {
+    var addHunger = this.state.hunger + 1;
+    this.setState({hunger: addHunger});
+  }
+
+  handleImproveEnergy() {
+    var addEnergy = this.state.energy + 1;
+    this.setState({energy: addEnergy});
   }
 
   render() {
@@ -40,12 +57,13 @@ class App extends React.Component {
             background-color: green;
             text-align: center;
           }
-
-
         `}</style>
         <Header />
         <img src={robot}/>
-        <StatList thirsty={this.state.thirst} hungry={this.state.hunger} tired={this.state.energy}/>
+        <StatList thirsty={this.state.thirst}
+          hungry={this.state.hunger}
+          tired={this.state.energy}
+          onImproveHunger={this.handleImproveHunger} onImproveThirst={this.handleImproveThirst} onImproveEnergy={this.handleImproveEnergy} />
       </div>
     );
   }

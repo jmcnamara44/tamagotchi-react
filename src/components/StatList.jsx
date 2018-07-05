@@ -8,7 +8,11 @@ function StatList(props){
       <Stats
         eat={props.hungry}
         sleep={props.tired}
-        drink={props.thirsty}/>
+        drink={props.thirsty}
+        onImproveHunger={props.onImproveHunger}
+        onImproveThirst={props.onImproveThirst}
+        onImproveEnergy={props.onImproveEnergy}
+        />
     </div>
   );
 }
@@ -16,6 +20,9 @@ function StatList(props){
 StatList.propTypes = {
   thirsty: PropTypes.number,
   hungry: PropTypes.number,
-  tired: PropTypes.number
+  tired: PropTypes.number,
+  onImproveHunger: PropTypes.func,
+  onImproveThirst: PropTypes.func,
+  onImproveEnergy: PropTypes.func
 }
 export default StatList;

@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Stats(props){
+
   function handleDrink(){
-    console.log('drink');
+    props.onImproveThirst();
   }
   function handleEat(){
-    console.log('eat');
+    props.onImproveHunger();
   }
   function handleSleep(){
-    console.log('sleep');
+    props.onImproveEnergy();
   }
   return (
     <div>
@@ -26,7 +27,10 @@ function Stats(props){
 Stats.propTypes = {
   eat: PropTypes.number,
   sleep: PropTypes.number,
-  drink: PropTypes.number
+  drink: PropTypes.number,
+  onImproveHunger: PropTypes.func,
+  onImproveThirst: PropTypes.func,
+  onImproveEnergy: PropTypes.func
 }
 
 export default Stats;
